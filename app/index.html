@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" ng-app="phoneCatApp">
+<head>
+
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style/style.css">
+
+</head>
+<body ng-controller="phonesCtrl">
+
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">Phonecat</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#/">Home</a></li>
+                <li><a href="#/about">About</a></li>
+                <li><a href="#/contact">Contact</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</nav><!-- /.navbar -->
+
+<div class="container">
+
+    <ng-view></ng-view>
+
+
+
+
+    <!--<input type="text" ng-model="filterText">-->
+    <!--<ul class="phone-list">
+        <li ng-repeat="phone in phones">
+            <h3>{{phone.name}}</h3>
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>-->
+
+
+    <!--<table>
+        <tr>
+            <th ng-click="filterByName('name')">Name<i ng-class="{'top':orderTop('name'), 'doun':orderDoun('name')}"> order</i></th>
+            <th ng-click="filterByName('snippet')">Name<i ng-class="{'top':orderTop('snippet'), 'doun':orderDoun('snippet')}"> order</i></th>
+        </tr>
+        <tr ng-repeat="phone in phones | orderBy:nameItem:reverse">
+            <td>{{phone.name}}</td>
+            <td>{{phone.snippet}}</td>
+        </tr>
+    </table>-->
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="js/controller.js"></script>
+</div>
+</body>
+</html>
