@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Learn JS (ES5, ES6)",
+    "status": false
+  },
+  {
+    "name": "Learn AngularJS",
+    "status": false
+  },
+  {
+    "name": "Create gallery",
+    "status": false
+  }
+]

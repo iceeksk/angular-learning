@@ -1,0 +1,29 @@
+.checkbox{
+    list-style-type: none;
+    font-size: 22px;
+}
+.checkbox li{
+margin-bottom: 10px;
+}
+.checkbox input{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+.is-true{
+    color: #777777;
+    text-decoration: line-through;
+}
+.add-task-wrapper input{
+    width: 300px;
+    height: 25px;
+}
+.add-task-wrapper button{
+    height: 29px;
+    width: 50px;
+}
+.clear{
+    height: 30px;
+    width: 100px;
+    margin-top: 25px;
+}
