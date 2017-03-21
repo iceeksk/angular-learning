@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-controller="MainController">
+<h1>Angular</h1>
+<p>{{2+2}}</p>
+<p>{{first | uppercase }}</p>
+
+<install-app></install-app>
+<div>
+    <button ng-click="plus()">+</button>
+    <button ng-click="minus()">-</button>
+    <button ng-click="reset()">reset</button>
+</div>
+
+<p>{{result}}</p>
+
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/installApp.js"></script>
+</body>
+</html>
