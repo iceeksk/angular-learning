@@ -4,6 +4,7 @@
     "url": "media/img/img1.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "landscape",
     "comments": [
       {
         "id": 1,
@@ -30,6 +31,7 @@
     "url": "media/img/img2.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "normal",
     "comments": []
   },
   {
@@ -37,6 +39,7 @@
     "url": "media/img/img3.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "normal",
     "comments": []
   },
   {
@@ -44,6 +47,7 @@
     "url": "media/img/img4.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "normal",
     "comments": []
   },
   {
@@ -51,6 +55,7 @@
     "url": "media/img/img5.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "landscape",
     "comments": []
   },
   {
@@ -58,6 +63,7 @@
     "url": "media/img/img6.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "portret",
     "comments": []
   },
   {
@@ -65,6 +71,7 @@
     "url": "media/img/img7.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "normal",
     "comments": []
   },
   {
@@ -72,6 +79,7 @@
     "url": "media/img/img8.jpg",
     "like": 0,
     "dislike": 0,
+    "size": "normal",
     "comments": []
   }
 ]

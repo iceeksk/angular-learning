@@ -8,7 +8,7 @@
 <body ng-controller="galleryCtrl">
 <h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
 <ul class="gallery-wrapper">
-    <li class="img-wrapper" ng-repeat="img in images">
+    <li class="img-wrapper {{img.size}}" ng-repeat="img in images">
         <img class="image" ng-src="{{img.url}}">
         <div class="discr-wrap">
             <div class="like">

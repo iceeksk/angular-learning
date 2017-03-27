@@ -20,7 +20,17 @@ galleryApp.controller('galleryCtrl',['$scope', '$http', function ($scope, $http)
         var file = event.target.files,
             myImg,
             inputImg = event.currentTarget,
+            random = Math.random(),
+            size,
             reader = new FileReader();
+
+        if(random < 0.5){
+            size = 'normal';
+        } else if(random > 0.75){
+            size = 'portret';
+        } else {
+            size = 'landscape';
+        }
 
         reader.readAsDataURL(inputImg.files[0]);
 
@@ -32,6 +42,7 @@ galleryApp.controller('galleryCtrl',['$scope', '$http', function ($scope, $http)
                     "url": myImg,
                     "like": 0,
                     "dislike": 0,
+                    "size": size,
                     "comments": []
                 });
             $scope.$apply();
