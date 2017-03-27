@@ -34,9 +34,9 @@ galleryApp.controller('galleryCtrl',['$scope', '$http', function ($scope, $http)
                     "dislike": 0,
                     "comments": []
                 });
+            $scope.$apply();
         };
 
-        console.log( $scope.images );
     };
 
 }]);
