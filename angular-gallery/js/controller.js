@@ -16,6 +16,8 @@ galleryApp.controller('galleryCtrl',['$scope', '$http', function ($scope, $http)
         $scope.images = data;
     });
 
+    $scope.showPopup = false;
+
     $scope.uploadImg = function (event) {
         var file = event.target.files,
             myImg,
@@ -47,7 +49,17 @@ galleryApp.controller('galleryCtrl',['$scope', '$http', function ($scope, $http)
                 });
             $scope.$apply();
         };
+    };
+
+    $scope.openPopup = function(index){
+        console.log(index);
+        $scope.showPopup = true;
+        $scope.popapImg = $scope.images[index];
 
     };
+
+    $scope.closePopup = function(name){
+        $scope.showPopup = false;
+    }
 
 }]);

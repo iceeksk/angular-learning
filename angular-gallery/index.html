@@ -8,7 +8,7 @@
 <body ng-controller="galleryCtrl">
 <h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
 <ul class="gallery-wrapper">
-    <li class="img-wrapper {{img.size}}" ng-repeat="img in images">
+    <li class="img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
         <img class="image" ng-src="{{img.url}}">
         <div class="discr-wrap">
             <div class="like">
@@ -35,10 +35,20 @@
         <input id="myinput" type="file" custom-on-change="uploadImg"  accept="image/*" >
         <label class="myinput" for="myinput"></label>
     </form>
-
-
 </ul>
+<div class="popup" ng-show="showPopup">
+    <div class="popup-content">
+        <div class="closePopup" ng-click="closePopup()"></div>
+        <img class="img" ng-src="{{popapImg.url}}">
+        <div class="comments">
+            <ul>
+                <li ng-repeat="com in popapImg.comments">{{com.comemnt}}</li>
+            </ul>
+        </div>
+        <span class="likes">{{popapImg.like}}</span>
+    </div>
 
+</div>
 
 <script src="js/angular.js"></script>
 <script src="js/controller.js"></script>
