@@ -11,22 +11,32 @@ galleryApp.directive('customOnChange', function() {
 });
 
 galleryApp.controller('galleryCtrl',['$scope', '$http', function ($scope, $http) {
+
     $http.get('data/model.json').success(function (data) {
         $scope.images = data;
     });
 
-
     $scope.uploadImg = function (event) {
-        var file = event.target.files;
-        $scope.images.push(
-            {
-            "name": file[0].name,
-            "url": "media/img/"+ file[0].name,
-            "like": 0,
-            "dislike": 0,
-            "comments": []
-        });
-        console.log($scope.images);
-    }
+        var file = event.target.files,
+            myImg,
+            inputImg = event.currentTarget,
+            reader = new FileReader();
+
+        reader.readAsDataURL(inputImg.files[0]);
+
+        reader.onload = function (el) {
+            myImg = el.target.result;
+            $scope.images.push(
+                {
+                    "name": file[0].name,
+                    "url": myImg,
+                    "like": 0,
+                    "dislike": 0,
+                    "comments": []
+                });
+        };
+
+        console.log( $scope.images );
+    };
 
 }]);
