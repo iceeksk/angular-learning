@@ -12,6 +12,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 600px;
     border: 1px solid red;
     overflow-x: scroll;
@@ -98,4 +100,13 @@ ul{
 .popup .img{
     width: 200px;
     height: 200px;
+}
+.popup-content{
+    display: flex;
+}
+.like,
+.dislike{
+    width: 25px;
+    height: 25px;
+    background-color: aqua;
 }

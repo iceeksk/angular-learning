@@ -2,24 +2,23 @@
   {
     "name": 1,
     "url": "media/img/img1.jpg",
-    "like": 0,
-    "dislike": 0,
+    "like": 5,
+    "canTapLike": true,
+    "dislike": 5,
+    "canTapDislike": true,
     "size": "landscape",
     "comments": [
       {
-        "id": 1,
         "name": "Alex",
         "time": "12.12.12",
         "comemnt": "asdk asd asd as d asd as d"
       },
       {
-        "id": 2,
         "name": "Bob",
         "time": "11.11.11",
         "comemnt": "Asdfgv dfg dhhj jgh j"
       },
       {
-        "id": 3,
         "name": "nick",
         "time": "10.10.10",
         "comemnt": "SSF sfg gh gjhk jk ggfjh "
@@ -29,8 +28,10 @@
   {
     "name": 2,
     "url": "media/img/img2.jpg",
-    "like": 0,
-    "dislike": 0,
+    "like": 5,
+    "canTapLike": true,
+    "dislike": 5,
+    "canTapDislike": true,
     "size": "normal",
     "comments": []
   },
