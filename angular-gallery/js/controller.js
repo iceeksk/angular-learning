@@ -52,11 +52,8 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	};
 
 	$scope.openPopup = function (index) {
-		console.log(index);
 		$scope.indexOfImg = index;
 		$scope.showPopup = true;
-
-
 	};
 
 	$scope.closePopup = function () {
@@ -64,6 +61,8 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	};
 
 	$scope.sendComment = function () {
+		var date = new Date();
+
 		$scope.images[$scope.indexOfImg].comments.push(
 			{
 				"name": $scope.nickName,
@@ -81,8 +80,6 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 
 		var canTapLike = sessionStorage.getItem('canTapLike'+$scope.indexOfImg),
 			canTapDislike = sessionStorage.getItem('canTapDislike'+$scope.indexOfImg);
-
-		console.log(canTapLike, canTapDislike);
 
 		if (canTapLike == 'can') {
 			$scope.images[$scope.indexOfImg].like++;
@@ -121,14 +118,11 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 
 		var canTapLike = sessionStorage.getItem('canTapLike' + $scope.indexOfImg),
 			canTapDislike = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
-		console.log(canTapLike, canTapDislike);
 
 		if (canTapLike == null) {
-			console.log(1);
 			sessionStorage.setItem('canTapLike' + $scope.indexOfImg, 'can');
 		}
 		if (canTapDislike == null) {
-			console.log(2);
 			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
 		}
 	}
