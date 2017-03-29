@@ -3,9 +3,7 @@
     "name": 1,
     "url": "media/img/img1.jpg",
     "like": 5,
-    "canTapLike": true,
     "dislike": 5,
-    "canTapDislike": true,
     "size": "landscape",
     "comments": [
       {
@@ -29,9 +27,7 @@
     "name": 2,
     "url": "media/img/img2.jpg",
     "like": 5,
-    "canTapLike": true,
     "dislike": 5,
-    "canTapDislike": true,
     "size": "normal",
     "comments": []
   },

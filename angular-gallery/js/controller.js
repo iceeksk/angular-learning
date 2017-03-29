@@ -76,36 +76,62 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	};
 
 	$scope.addLike = function () {
-		var canTapLike = $scope.images[$scope.indexOfImg].canTapLike;
-		if (canTapLike) {
+
+		createSessionStorageItemsForLikesAndDislikes();
+
+		var canTapLike = sessionStorage.getItem('canTapLike'+$scope.indexOfImg),
+			canTapDislike = sessionStorage.getItem('canTapDislike'+$scope.indexOfImg);
+
+		console.log(canTapLike, canTapDislike);
+
+		if (canTapLike == 'can') {
 			$scope.images[$scope.indexOfImg].like++;
-			$scope.images[$scope.indexOfImg].canTapLike = false;
-			if (!$scope.images[$scope.indexOfImg].canTapDislike) {
+			sessionStorage.setItem('canTapLike'+$scope.indexOfImg, 'no');
+			if (canTapDislike == 'no') {
 				$scope.images[$scope.indexOfImg].dislike--;
-				$scope.images[$scope.indexOfImg].canTapDislike = true;
+				sessionStorage.setItem('canTapDislike'+$scope.indexOfImg, 'can');
 			}
-		} else if (!canTapLike) {
+		} else if (canTapLike == 'no') {
 			$scope.images[$scope.indexOfImg].like--;
-			$scope.images[$scope.indexOfImg].canTapLike = true;
+			sessionStorage.setItem('canTapLike'+$scope.indexOfImg, 'can');
 		}
 
 	};
 	$scope.addDislike = function () {
-		var canTapDislike = $scope.images[$scope.indexOfImg].canTapDislike;
-		if (canTapDislike) {
+
+		createSessionStorageItemsForLikesAndDislikes();
+
+		var canTapLike = sessionStorage.getItem('canTapLike' + $scope.indexOfImg),
+			canTapDislike = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
+
+		if (canTapDislike == 'can') {
 			$scope.images[$scope.indexOfImg].dislike++;
-			$scope.images[$scope.indexOfImg].canTapDislike = false;
-			if (!$scope.images[$scope.indexOfImg].canTapLike) {
+			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'no');
+			if (canTapLike == 'no') {
 				$scope.images[$scope.indexOfImg].like--;
-				$scope.images[$scope.indexOfImg].canTapLike = true;
+				sessionStorage.setItem('canTapLike' + $scope.indexOfImg, 'can');
 			}
-		} else if (!canTapDislike) {
+		} else if (canTapDislike == 'no') {
 			$scope.images[$scope.indexOfImg].dislike--;
-			$scope.images[$scope.indexOfImg].canTapDislike = true;
+			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
+		}
+	};
+
+	function createSessionStorageItemsForLikesAndDislikes() {
+
+		var canTapLike = sessionStorage.getItem('canTapLike' + $scope.indexOfImg),
+			canTapDislike = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
+		console.log(canTapLike, canTapDislike);
+
+		if (canTapLike == null) {
+			console.log(1);
+			sessionStorage.setItem('canTapLike' + $scope.indexOfImg, 'can');
+		}
+		if (canTapDislike == null) {
+			console.log(2);
+			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
 		}
 	}
-
-
 
 
 }]);
