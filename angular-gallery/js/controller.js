@@ -67,7 +67,7 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 		if( $scope.nickName && $scope.newComment ){
 			$scope.images[$scope.indexOfImg].comments.push(
 				{
-					"name": $scope.nickName,
+					"name": "By " + $scope.nickName,
 					"time": date,
 					"comemnt": $scope.newComment
 				}

@@ -7,71 +7,73 @@
 </head>
 <body ng-controller="galleryCtrl">
 <article class="wrapper">
-<h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
-<ul class="gallery-wrapper">
-	<li class="img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
-		<img class="image" ng-src="{{img.url}}">
-		<div class="discr-wrap">
-			<div class="like">
-				<img ng-src="media/img/like.png">
-				<div class="score">
-					<span>{{img.like}}</span>
+	<h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
+	<ul class="gallery-wrapper">
+		<li class="img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
+			<img class="image" ng-src="{{img.url}}">
+			<div class="discr-wrap">
+				<div class="like">
+					<img ng-src="media/img/like.png">
+					<div class="score">
+						<span>{{img.like}}</span>
+					</div>
+				</div>
+				<div class="dislike">
+					<img ng-src="media/img/dislike.png">
+					<div class="score">
+						<span>{{img.dislike}}</span>
+					</div>
+				</div>
+				<div class="comments">
+					<img ng-src="media/img/comments.png">
+					<div class="score">
+						<span>{{img.comments.length}}</span>
+					</div>
 				</div>
 			</div>
-			<div class="dislike">
-				<img ng-src="media/img/dislike.png">
-				<div class="score">
-					<span>{{img.dislike}}</span>
+		</li>
+		<form class="add-img">
+			<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
+			<label class="myinput" for="myinput"></label>
+		</form>
+	</ul>
+	<div class="popup" ng-show="showPopup">
+		<div class="popup-content">
+			<div class="close-popup" ng-click="closePopup()"><span>x</span></div>
+			<div class="popup-img-wrapper">
+				<img class="popup-img" ng-src="{{images[indexOfImg].url}}">
+				<div class="popup-like-disLike-wrapper">
+					<div class="like" ng-click="addLike()">
+						<span class="likes">{{images[indexOfImg].like}}</span>
+					</div>
+					<div class="dislike" ng-click="addDislike()">
+						<span class="likes">{{images[indexOfImg].dislike}}</span>
+					</div>
 				</div>
 			</div>
-			<div class="comments">
-				<img ng-src="media/img/comments.png">
-				<div class="score">
-					<span>{{img.comments.length}}</span>
-				</div>
-			</div>
-		</div>
-	</li>
-	<form class="add-img">
-		<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
-		<label class="myinput" for="myinput"></label>
-	</form>
-</ul>
-<div class="popup" ng-show="showPopup">
-	<div class="popup-content">
-		<div class="closePopup" ng-click="closePopup()"></div>
-		<div class="img-wrapper">
-			<img class="img" ng-src="{{images[indexOfImg].url}}">
-			<div class="like-disLike-wrapper">
-				<div class="like" ng-click="addLike()">
-					<span class="likes">{{images[indexOfImg].like}}</span>
-				</div>
-				<div class="dislike" ng-click="addDislike()">
-					<span class="likes">{{images[indexOfImg].dislike}}</span>
-				</div>
-			</div>
-		</div>
 
-		<div class="comments">
+			<div class="popup-comments">
 
-			<h2>Comments: {{images[indexOfImg].comments.length}}</h2>
-			<ul>
-				<li ng-repeat="com in images[indexOfImg].comments">
-					<span>{{com.name}}</span>
-					<span>{{com.time | date:"h:mm a"}}</span>
-					<span>{{com.comemnt}}</span>
-				</li>
-			</ul>
-			<form>
-				<input type="text" ng-model="nickName">
-				<input type="email" ng-model="newComment">
-				<input type="submit" ng-click="sendComment()">
-			</form>
+				<h2>Comments: {{images[indexOfImg].comments.length}}</h2>
+				<ul class="popup-comments-list">
+					<li ng-repeat="com in images[indexOfImg].comments">
+						<div class="name-add-time-wrapper">
+							<span>{{com.name}}</span>
+							<span>{{com.time | date:"h:mm a"}}</span>
+						</div>
+						<span class="comment">{{com.comemnt}}</span>
+					</li>
+				</ul>
+				<form>
+					<input type="text" ng-model="nickName">
+					<input type="text" ng-model="newComment">
+					<input type="submit" ng-click="sendComment()">
+				</form>
+			</div>
+
 		</div>
 
 	</div>
-
-</div>
 </article>
 <script src="js/angular.js"></script>
 <script src="js/controller.js"></script>
