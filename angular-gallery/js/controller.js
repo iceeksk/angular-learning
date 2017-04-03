@@ -61,18 +61,24 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	};
 
 	$scope.sendComment = function () {
+
 		var date = new Date();
 
-		$scope.images[$scope.indexOfImg].comments.push(
-			{
-				"name": $scope.nickName,
-				"time": "12.12.12",
-				"comemnt": $scope.newComment
-			}
-		);
-		$scope.nickName = "";
-		$scope.newComment = "";
+		if( $scope.nickName && $scope.newComment ){
+			$scope.images[$scope.indexOfImg].comments.push(
+				{
+					"name": $scope.nickName,
+					"time": date,
+					"comemnt": $scope.newComment
+				}
+			);
+			$scope.nickName = "";
+			$scope.newComment = "";
+		}
 	};
+
+
+	sessionStorage.clear();
 
 	$scope.addLike = function () {
 

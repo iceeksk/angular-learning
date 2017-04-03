@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="style/style.css">
 </head>
 <body ng-controller="galleryCtrl">
+<article class="wrapper">
 <h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
 <ul class="gallery-wrapper">
 	<li class="img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
@@ -57,13 +58,13 @@
 			<ul>
 				<li ng-repeat="com in images[indexOfImg].comments">
 					<span>{{com.name}}</span>
-					<span>{{com.time}}</span>
+					<span>{{com.time | date:"h:mm a"}}</span>
 					<span>{{com.comemnt}}</span>
 				</li>
 			</ul>
 			<form>
 				<input type="text" ng-model="nickName">
-				<input type="text" ng-model="newComment">
+				<input type="email" ng-model="newComment">
 				<input type="submit" ng-click="sendComment()">
 			</form>
 		</div>
@@ -71,7 +72,7 @@
 	</div>
 
 </div>
-
+</article>
 <script src="js/angular.js"></script>
 <script src="js/controller.js"></script>
 </body>
