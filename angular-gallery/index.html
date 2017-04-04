@@ -54,7 +54,7 @@
 			<div class="close-popup" ng-click="closePopup()"><span>x</span></div>
 			<div class="popup-img-wrapper">
 				<img class="popup-img" ng-src="{{images[indexOfImg].url}}">
-				<div class="popup-like-disLike-wrapper" >
+				<div class="popup-like-disLike-wrapper">
 					<div class="like" ng-click="addLike()" ng-class="likeIsTapet[indexOfImg]">
 						<img ng-src="media/img/like.png">
 						<div class="score">
@@ -71,11 +71,11 @@
 			</div>
 
 
-
-
 			<div class="popup-comments">
 
 				<h2>Comments: {{images[indexOfImg].comments.length }}</h2>
+
+				<div class="popup-comments-wrapper">
 				<ul class="popup-comments-list">
 					<li ng-repeat="com in images[indexOfImg].comments | orderBy:'-'">
 						<div class="name-add-time-wrapper">
@@ -85,9 +85,10 @@
 						<span class="comment">{{com.comemnt}}</span>
 					</li>
 				</ul>
+				</div>
 				<form>
-					<input type="text" ng-model="nickName">
-					<input type="text" ng-model="newComment">
+					<input type="text" placeholder="Type your nickname here..." ng-model="nickName">
+					<input type="text" placeholder="Write your comment here..." ng-model="newComment">
 					<input type="submit" ng-click="sendComment()">
 				</form>
 			</div>
