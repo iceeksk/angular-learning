@@ -22,21 +22,25 @@ h1{
 h1 span{
     color: #21b8c6;
 }
+
 .gallery-wrapper{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    box-sizing: border-box;
     height: 670px;
+    width: 960px;
     overflow-x: scroll;
     margin-left: 30px;
     list-style-type: none;
+    padding: 0 15px;
 }
 .img-wrapper{
     width: 250px;
     height: 300px;
-    margin: 0 10px 10px 0;
+    margin: 5px;
     position: relative;
     overflow: hidden;
     border-radius: 5px;
@@ -62,7 +66,7 @@ h1 span{
 }
 .discr-wrap{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-end;
     position: absolute;
     bottom: 0;
@@ -71,9 +75,15 @@ h1 span{
     background-color: white;
     opacity: 0;
     transition: opacity .5s;
+    box-sizing: border-box;
+    padding: 0 20px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-
+}
+.like-dislike-wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
 }
 .like,
 .dislike,
@@ -84,7 +94,7 @@ h1 span{
     width: 15px;
     height: 15px;
     border: 2px solid #A0B0BA;
-    background-color: #f0f3f6;
+    background-color: #fff;
     border-radius: 50%;
     position: absolute;
     right: -4px;
@@ -98,20 +108,31 @@ h1 span{
     color: #21b8c6;
 }
 .add-img{
-    background-color: #00b3ee;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 10px;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: white;
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.25);
 }
 .myinput{
-    width: 100px;
-    height: 100px;
-    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    background: url("../media/img/add.png") center no-repeat;
+    background-size: 54px 54px;
     display: block;
 }
 #myinput{
     display: none;
+}
+.add-img span {
+    position: absolute;
+    top: 130px;
+    left: 70px;
+    text-align: center;
+    color: #A0B0BA;
+    font: bold 14px/1.1 OpenSans;
 }
 
 
@@ -150,16 +171,18 @@ h1 span{
     position: absolute;
     top: 70px;
     left: 100px;
-    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
 }
 .popup-img-wrapper{
     width: 600px;
     height: 100%;
     position: relative;
-    /* border: 1px solid red; */
 }
 .popup-img{
     width: 95%;
+    border-top-left-radius: 5px;
     background-size: contain;
 }
 .popup-content{
@@ -189,7 +212,6 @@ h1 span{
     font: normal 11px OpenSans;;
     color: #95a7b3;
 }
-
 .comment{
     display: block;
     font: normal 14px OpenSans;;
