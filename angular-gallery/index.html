@@ -9,7 +9,7 @@
 <article class="wrapper">
 	<h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
 
-	<ul class="gallery-wrapper">
+	<!--<ul class="gallery-wrapper">
 		<li class="img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
 			<div class="inner">
 				<div class="img-inner-wraper">
@@ -40,14 +40,53 @@
 				</div>
 			</div>
 		</li>
-		<div class="form-wrapper">
+
+	</ul>-->
+<div class="gallery-wrapper">
+
+	<pa-packery pa-options="options" class="eee">
+
+		<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images | orderBy:'-'" ng-click="openPopup($index)">
+			<div class="inner">
+				<div class="img-inner-wraper">
+					<img class="image" ng-src="{{img.url}}">
+				</div>
+				<div class="discr-wrap">
+					<div class="comments">
+						<img ng-src="media/img/comments.png">
+						<div class="score">
+							<span>{{img.comments.length}}</span>
+						</div>
+					</div>
+					<div class="like-dislike-wrapper">
+						<div class="like">
+							<img ng-src="media/img/like.png">
+							<div class="score">
+								<span>{{img.like}}</span>
+							</div>
+						</div>
+						<div class="dislike">
+							<img ng-src="media/img/dislike.png">
+							<div class="score">
+								<span>{{img.dislike}}</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</pa-packery-item>
+
+		<div class="form-wrapper pa-item">
 			<form class="add-img">
 				<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
 				<label class="myinput" for="myinput"></label>
 				<span>Add your<br>Picture</span>
 			</form>
 		</div>
-	</ul>
+
+	</pa-packery>
+</div>
 
 	<div class="popup" ng-show="showPopup">
 		<div class="popup-content">
@@ -102,6 +141,9 @@
 	</div>
 </article>
 <script src="js/angular.js"></script>
+<script src="js/draggabilly.pkgd.js"></script>
+<script src="js/packery.pkgd.js"></script>
+<script src="js/packery-angular.js"></script>
 <script src="js/controller.js"></script>
 </body>
 </html>

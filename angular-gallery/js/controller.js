@@ -1,4 +1,4 @@
-var galleryApp = angular.module('galleryApp', []);
+var galleryApp = angular.module('galleryApp', ['packery-angular']);
 
 galleryApp.directive('customOnChange', function () {
 	return {
@@ -15,6 +15,19 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	$http.get('data/model.json').success(function (data) {
 		$scope.images = data;
 	});
+
+	$scope.options = {
+		columnWidth: 1,
+		dragSelector: '',
+		isAppended: true,
+		isDraggable: false,
+		itemSelector: '.pa-item',
+		rowHeight: 1,
+		stamp: '.pa-stamp',
+		horizontal: true,
+		originLeft: true,
+		gutter: 5
+	};
 
 	$scope.showPopup = false;
 
