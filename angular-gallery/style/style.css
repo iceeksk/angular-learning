@@ -270,3 +270,27 @@ h1 span{
     background-color: red;
     top: 5px;
 }
+.input-nickname{
+    width: 300px;
+    height: 25px;
+}
+.input-comment{
+    width: 250px;
+    height: 50px;
+}
+.inputs-wrapper{
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+}
+#input-submit{
+   display: none;
+}
+.input-submit{
+    width: 50px;
+    height: 54px;
+    background-color: #21b8c6;
+    background-image: url("../media/img/send.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
