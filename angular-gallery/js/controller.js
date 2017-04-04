@@ -80,6 +80,9 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 
 	sessionStorage.clear();
 
+	$scope.likeIsTapet = [];
+	$scope.dislikeIsTapet = [];
+
 	$scope.addLike = function () {
 
 		createSessionStorageItemsForLikesAndDislikes();
@@ -99,7 +102,11 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 			sessionStorage.setItem('canTapLike'+$scope.indexOfImg, 'can');
 		}
 
+		$scope.likeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapLike' + $scope.indexOfImg);
+		$scope.dislikeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
+
 	};
+
 	$scope.addDislike = function () {
 
 		createSessionStorageItemsForLikesAndDislikes();
@@ -118,6 +125,10 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 			$scope.images[$scope.indexOfImg].dislike--;
 			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
 		}
+
+		$scope.likeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapLike' + $scope.indexOfImg);
+		$scope.dislikeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
+
 	};
 
 	function createSessionStorageItemsForLikesAndDislikes() {
@@ -132,6 +143,5 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
 		}
 	}
-
 
 }]);

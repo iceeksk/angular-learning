@@ -11,36 +11,42 @@
 
 	<ul class="gallery-wrapper">
 		<li class="img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
-			<img class="image" ng-src="{{img.url}}">
-			<div class="discr-wrap">
-				<div class="comments">
-					<img ng-src="media/img/comments.png">
-					<div class="score">
-						<span>{{img.comments.length}}</span>
+			<div class="inner">
+				<div class="img-inner-wraper">
+					<img class="image" ng-src="{{img.url}}">
+				</div>
+				<div class="discr-wrap">
+					<div class="comments">
+						<img ng-src="media/img/comments.png">
+						<div class="score">
+							<span>{{img.comments.length}}</span>
+						</div>
 					</div>
-				</div>
-				<div class="like-dislike-wrapper">
-				<div class="like">
-					<img ng-src="media/img/like.png">
-					<div class="score">
-						<span>{{img.like}}</span>
+					<div class="like-dislike-wrapper">
+						<div class="like">
+							<img ng-src="media/img/like.png">
+							<div class="score">
+								<span>{{img.like}}</span>
+							</div>
+						</div>
+						<div class="dislike">
+							<img ng-src="media/img/dislike.png">
+							<div class="score">
+								<span>{{img.dislike}}</span>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="dislike">
-					<img ng-src="media/img/dislike.png">
-					<div class="score">
-						<span>{{img.dislike}}</span>
-					</div>
-				</div>
-				</div>
 
+				</div>
 			</div>
 		</li>
-		<form class="add-img">
-			<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
-			<label class="myinput" for="myinput"></label>
-			<span>Add your<br>Picture</span>
-		</form>
+		<div class="form-wrapper">
+			<form class="add-img">
+				<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
+				<label class="myinput" for="myinput"></label>
+				<span>Add your<br>Picture</span>
+			</form>
+		</div>
 	</ul>
 
 	<div class="popup" ng-show="showPopup">
@@ -48,21 +54,30 @@
 			<div class="close-popup" ng-click="closePopup()"><span>x</span></div>
 			<div class="popup-img-wrapper">
 				<img class="popup-img" ng-src="{{images[indexOfImg].url}}">
-				<div class="popup-like-disLike-wrapper">
-					<div class="like" ng-click="addLike()">
-						<span class="likes">{{images[indexOfImg].like}}</span>
+				<div class="popup-like-disLike-wrapper" >
+					<div class="like" ng-click="addLike()" ng-class="likeIsTapet[indexOfImg]">
+						<img ng-src="media/img/like.png">
+						<div class="score">
+							<span class="likes">{{images[indexOfImg].like}}</span>
+						</div>
 					</div>
-					<div class="dislike" ng-click="addDislike()">
-						<span class="likes">{{images[indexOfImg].dislike}}</span>
+					<div class="dislike" ng-click="addDislike()" ng-class="dislikeIsTapet[indexOfImg]">
+						<img ng-src="media/img/dislike.png">
+						<div class="score">
+							<span class="likes">{{images[indexOfImg].dislike}}</span>
+						</div>
 					</div>
 				</div>
 			</div>
 
+
+
+
 			<div class="popup-comments">
 
-				<h2>Comments: {{images[indexOfImg].comments.length}}</h2>
+				<h2>Comments: {{images[indexOfImg].comments.length }}</h2>
 				<ul class="popup-comments-list">
-					<li ng-repeat="com in images[indexOfImg].comments">
+					<li ng-repeat="com in images[indexOfImg].comments | orderBy:'-'">
 						<div class="name-add-time-wrapper">
 							<span>{{com.name}}</span>
 							<span>{{com.time | date:"h:mm a"}}</span>
