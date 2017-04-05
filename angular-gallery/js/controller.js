@@ -25,8 +25,7 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 		rowHeight: 1,
 		stamp: '.pa-stamp',
 		horizontal: true,
-		originLeft: true,
-		gutter: 5
+		gutter: 1
 	};
 
 	$scope.showPopup = false;

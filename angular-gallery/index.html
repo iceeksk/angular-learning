@@ -46,7 +46,7 @@
 
 	<pa-packery pa-options="options" class="eee">
 
-		<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images | orderBy:'-'" ng-click="openPopup($index)">
+		<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
 			<div class="inner">
 				<div class="img-inner-wraper">
 					<img class="image" ng-src="{{img.url}}">
