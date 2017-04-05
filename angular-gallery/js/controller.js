@@ -17,6 +17,13 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 
 	});
 
+	$scope.showGallery = false;
+
+	$scope.$on('someEvent', function() {
+		$scope.showGallery = true;
+		console.log('2');
+	});
+
 	$scope.options = {
 		columnWidth: 1,
 		dragSelector: '',
@@ -67,6 +74,7 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	$scope.openPopup = function (index) {
 		$scope.indexOfImg = index;
 		$scope.showPopup = true;
+
 	};
 
 	$scope.closePopup = function () {

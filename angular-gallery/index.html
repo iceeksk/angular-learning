@@ -9,80 +9,32 @@
 <article class="wrapper">
 	<h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
 
-<div class="gallery-wrapper" >
-	<pa-packery pa-options="options" class="eee">
-		<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
-			<gallery-item custom-image="img"></gallery-item>
-		</pa-packery-item>
+	<div class="gallery-wrapper">
 
-		<div class="form-wrapper pa-item">
-			<form class="add-img">
-				<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
-				<label class="myinput" for="myinput"></label>
-				<span>Add your<br>Picture</span>
-			</form>
-		</div>
+		<pa-packery pa-options="options" class="packery-wrapper">
 
-	</pa-packery>
-</div>
+			<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
+				<gallery-item custom-image="img"></gallery-item>
+			</pa-packery-item>
 
-	<div class="popup" ng-show="showPopup">
-		<div class="popup-content">
-			<div class="close-popup" ng-click="closePopup()"><span>x</span></div>
-			<div class="popup-img-wrapper">
-				<img class="popup-img" ng-src="{{images[indexOfImg].url}}">
-				<div class="popup-like-disLike-wrapper">
-					<div class="like" ng-click="addLike()" ng-class="likeIsTapet[indexOfImg]">
-						<img ng-src="media/img/like.png">
-						<div class="score">
-							<span class="likes">{{images[indexOfImg].like}}</span>
-						</div>
-					</div>
-					<div class="dislike" ng-click="addDislike()" ng-class="dislikeIsTapet[indexOfImg]">
-						<img ng-src="media/img/dislike.png">
-						<div class="score">
-							<span class="likes">{{images[indexOfImg].dislike}}</span>
-						</div>
-					</div>
-				</div>
-			</div>
+			<pa-packery-item class="pa-item" ng-if="showGallery">
+				<button-add-images></button-add-images>
+			</pa-packery-item>
 
-
-			<div class="popup-comments">
-
-				<h2>Comments: {{images[indexOfImg].comments.length }}</h2>
-
-				<div class="popup-comments-wrapper">
-					<ul class="popup-comments-list">
-						<li ng-repeat="com in images[indexOfImg].comments | orderBy:'-'">
-							<div class="name-add-time-wrapper">
-								<span>{{com.name}}</span>
-								<span>{{com.time | date:"h:mm a"}}</span>
-							</div>
-							<span class="comment">{{com.comemnt}}</span>
-						</li>
-					</ul>
-				</div>
-				<form>
-					<input class="input-nickname" type="text" placeholder="Type your nickname here..." ng-model="nickName">
-					<div class="inputs-wrapper">
-						<input class="input-comment" type="textarea" placeholder="Write your comment here..." ng-model="newComment">
-						<input id="input-submit" name="submit" type="submit" ng-click="sendComment()">
-						<label class="input-submit" for="input-submit"></label>
-					</div>
-
-				</form>
-			</div>
-
-		</div>
+		</pa-packery>
 
 	</div>
+
+	<image-popup></image-popup>
+
 </article>
-<script src="js/angular.js"></script>
-<script src="js/draggabilly.pkgd.js"></script>
-<script src="js/packery.pkgd.js"></script>
-<script src="js/packery-angular.js"></script>
+<script src="js/libs/angular.js"></script>
+<script src="js/libs/draggabilly.pkgd.js"></script>
+<script src="js/libs/packery.pkgd.js"></script>
+<script src="js/libs/packery-angular.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/galleryItem.directive.js"></script>
+<script src="js/imagePopup.directive.js"></script>
+<script src="js/buttonAddImages.directive.js"></script>
 </body>
 </html>
