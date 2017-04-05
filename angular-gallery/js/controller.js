@@ -12,8 +12,16 @@ galleryApp.directive('customOnChange', function () {
 
 galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http) {
 
+	$scope.showGallery = false;
+
+	$scope.$on('someEvent', function() {
+		$scope.showGallery = true;
+		console.log('2');
+	});
+
 	$http.get('data/model.json').success(function (data) {
 		$scope.images = data;
+
 	});
 
 	$scope.options = {
