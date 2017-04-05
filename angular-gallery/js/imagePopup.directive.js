@@ -3,7 +3,8 @@ galleryApp.directive("imagePopup", function () {
 		restrict: "E",
 		replace: true,
 		scope: {
-			scope: '='
+			scope: '=',
+			customPopup: '='
 		},
 		templateUrl: "templates/image-popup.html"
 	}
