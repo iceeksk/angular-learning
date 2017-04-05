@@ -1,4 +1,4 @@
-galleryApp.directive("buttonAddImages", function () {
+angular.module('galleryApp').directive("buttonAddImages", function () {
 	return {
 		restrict: "E",
 		replace: true,

@@ -1,4 +1,4 @@
-galleryApp.directive("galleryItem", function () {
+angular.module('galleryApp').directive("galleryItem", function () {
 	return {
 		restrict: "E",
 		replace: true,

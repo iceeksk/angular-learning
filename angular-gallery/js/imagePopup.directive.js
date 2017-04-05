@@ -1,4 +1,4 @@
-galleryApp.directive("imagePopup", function () {
+angular.module('galleryApp').directive("imagePopup", function () {
 	return {
 		restrict: "E",
 		replace: true,
