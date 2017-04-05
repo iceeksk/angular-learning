@@ -1,5 +1,7 @@
 var galleryApp = angular.module('galleryApp', ['packery-angular']);
 
+
+
 galleryApp.directive('customOnChange', function () {
 	return {
 		restrict: 'A',
@@ -9,6 +11,8 @@ galleryApp.directive('customOnChange', function () {
 		}
 	};
 });
+
+
 
 galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http) {
 
@@ -37,7 +41,6 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 		gutter: 1
 	};
 
-	$scope.showPopup = false;
 
 	$scope.uploadImg = function (event) {
 		var file = event.target.files,
@@ -55,6 +58,10 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 			size = 'landscape';
 		}
 
+		/*random < 0.5 ? size = 'normal' : random > 0.75 ? size = 'portret' : size = 'landscape' ;*/
+
+
+
 		reader.readAsDataURL(inputImg.files[0]);
 
 		reader.onload = function (el) {
@@ -71,6 +78,8 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 			$scope.$apply();
 		};
 	};
+
+	$scope.showPopup = false;
 
 	$scope.openPopup = function (index) {
 		$scope.indexOfImg = index;
@@ -99,7 +108,6 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 			$scope.newComment = "";
 		}
 	};
-
 
 	sessionStorage.clear();
 
