@@ -61,6 +61,8 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 		$scope.showPopup = false;
 	};
 
+
+
 	$scope.sendComment = function () {
 
 		var date = new Date();

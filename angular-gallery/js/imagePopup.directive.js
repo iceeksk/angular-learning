@@ -3,9 +3,16 @@ angular.module('galleryApp').directive("imagePopup", function () {
 		restrict: "E",
 		replace: true,
 		scope: {
-			scope: '=',
+			customImage: '=',
 			customPopup: '='
 		},
-		templateUrl: "templates/image-popup.html"
+		templateUrl: "templates/image-popup.html",
+		link: function (scope) {
+
+			scope.closePopup = function () {
+				scope.showPopup = false;
+			};
+
+		}
 	}
 });

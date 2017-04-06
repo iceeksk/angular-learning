@@ -37,13 +37,17 @@ h1 span{
 .img-wrapper {
     display: flex;
 }
-.img-wrapper .inner{
+.img-wrapper .inner-wrapper{
     box-sizing: border-box;
     margin: 5px;
-    position: relative;
-    overflow: hidden;
     border-radius: 5px;
     box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.25);
+}
+.inner{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
 }
 .img-wrapper:hover .discr-wrap{
     opacity: 1;
@@ -152,12 +156,13 @@ h1 span{
 
 
 .popup{
-    width: 100%;
-    height: 100%;
+    width: 1024px;
+    height: 768px;
     background-color: rgba(255, 255, 255, 0.75);
     position: absolute;
     top:0;
     left: 0;
+    z-index: 1;
 }
 .close-popup{
     position: absolute;
@@ -179,8 +184,8 @@ h1 span{
     height: 600px;
     background-color: white;
     position: absolute;
-    top: 70px;
-    left: 100px;
+    top: 17px;
+    left: 50px;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
@@ -281,7 +286,7 @@ h1 span{
     justify-content: flex-start;
 }
 #input-submit{
-   display: none;
+    display: none;
 }
 .input-submit{
     width: 50px;

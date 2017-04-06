@@ -2,27 +2,27 @@
 	<div class="popup-content">
 		<div class="close-popup" ng-click="closePopup()"><span>x</span></div>
 		<div class="popup-img-wrapper">
-			<img class="popup-img" ng-src="{{images[indexOfImg].url}}">
+			<img class="popup-img" ng-src="{{customImage.url}}">
 			<div class="popup-like-disLike-wrapper">
 				<div class="like" ng-click="addLike()" ng-class="likeIsTapet[indexOfImg]">
 					<img ng-src="media/img/like.png">
 					<div class="score">
-						<span class="likes">{{images[indexOfImg].like}}</span>
+						<span class="likes">{{customImage.like}}</span>
 					</div>
 				</div>
 				<div class="dislike" ng-click="addDislike()" ng-class="dislikeIsTapet[indexOfImg]">
 					<img ng-src="media/img/dislike.png">
 					<div class="score">
-						<span class="likes">{{images[indexOfImg].dislike}}</span>
+						<span class="likes">{{customImage.dislike}}</span>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="popup-comments">
-			<h2>Comments: {{images[indexOfImg].comments.length }}</h2>
+			<h2>Comments: {{customImage.comments.length }}</h2>
 			<div class="popup-comments-wrapper">
 				<ul class="popup-comments-list">
-					<li ng-repeat="com in images[indexOfImg].comments | orderBy:'-'">
+					<li ng-repeat="com in customImage.comments | orderBy:'-'">
 						<div class="name-add-time-wrapper">
 							<span>{{com.name}}</span>
 							<span>{{com.time | date:"h:mm a"}}</span>
