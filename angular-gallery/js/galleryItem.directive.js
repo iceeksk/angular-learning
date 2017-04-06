@@ -14,6 +14,9 @@ angular.module('galleryApp').directive("galleryItem", function () {
 				},
 				post: function(scope, element, attributes, controller, transcludeFn){
 					scope.$emit('someEvent');
+					scope.openPopup = function () {
+						scope.showPopup = true;
+					};
 				}
 			}
 		}

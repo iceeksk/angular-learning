@@ -6,6 +6,7 @@ galleryApp.directive('customOnChange', function () {
 	return {
 		restrict: 'A',
 		link: function (scope, element, attrs) {
+			console.log('121212');
 			var onChangeHandler = scope.$eval(attrs.customOnChange);
 			element.bind('change', onChangeHandler);
 		}
@@ -42,51 +43,19 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	};
 
 
-	$scope.uploadImg = function (event) {
-		var file = event.target.files,
-			myImg,
-			inputImg = event.currentTarget,
-			random = Math.random(),
-			size,
-			reader = new FileReader();
+	$scope.$on('addImageToImages', function(newImg) {
+		$scope.images.push(newImg);
+		console.log('newImg');
+		console.log($scope.images);
 
-		if (random < 0.5) {
-			size = 'normal';
-		} else if (random > 0.75) {
-			size = 'portret';
-		} else {
-			size = 'landscape';
-		}
+	});
 
-		/*random < 0.5 ? size = 'normal' : random > 0.75 ? size = 'portret' : size = 'landscape' ;*/
+			/*$scope.$apply();*/
 
-
-
-		reader.readAsDataURL(inputImg.files[0]);
-
-		reader.onload = function (el) {
-			myImg = el.target.result;
-			$scope.images.push(
-				{
-					"name": file[0].name,
-					"url": myImg,
-					"like": 0,
-					"dislike": 0,
-					"size": size,
-					"comments": []
-				});
-			$scope.$apply();
-		};
-	};
 
 	$scope.showPopup = false;
 
-	$scope.openPopup = function (index) {
-		$scope.indexOfImg = index;
-		$scope.showPopup = true;
-		console.log('popup');
-		console.log(index);
-	};
+
 
 	$scope.closePopup = function () {
 		$scope.showPopup = false;
@@ -113,6 +82,7 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 
 	$scope.likeIsTapet = [];
 	$scope.dislikeIsTapet = [];
+
 
 	$scope.addLike = function () {
 

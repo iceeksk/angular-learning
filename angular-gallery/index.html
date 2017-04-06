@@ -10,11 +10,10 @@
 	<h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
 
 	<div class="gallery-wrapper">
-
 		<pa-packery pa-options="options" class="packery-wrapper">
 
-			<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
-				<gallery-item custom-image="img"></gallery-item>
+			<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images">
+				<gallery-item custom-image="img" ></gallery-item>
 			</pa-packery-item>
 
 			<pa-packery-item class="pa-item" ng-if="showGallery">
@@ -22,10 +21,8 @@
 			</pa-packery-item>
 
 		</pa-packery>
-
 	</div>
 
-	<image-popup custom-popup="showPopup"></image-popup>
 
 </article>
 <script src="js/libs/angular.js"></script>
