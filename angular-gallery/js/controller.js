@@ -1,4 +1,4 @@
-var galleryApp = angular.module('galleryApp', ['packery-angular']);
+let galleryApp = angular.module('galleryApp', ['packery-angular']);
 
 
 galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http) {
@@ -9,21 +9,17 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 
 	$scope.showInput = false;
 
-	$scope.$on('someEvent', function() {
+	$scope.$on('addAllItemsInGalleryItem', function() {
 		$scope.showInput = true;
-		console.log('2');
 	});
 
 	$scope.options = {
 		columnWidth: 1,
-		dragSelector: '',
 		isAppended: true,
 		isDraggable: false,
 		itemSelector: '.pa-item',
 		rowHeight: 1,
-		stamp: '.pa-stamp',
-		horizontal: true,
-		gutter: 1
+		horizontal: true
 	};
 
 	$scope.showPopup = false;
@@ -36,7 +32,7 @@ galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http
 	sessionStorage.clear();
 
 	$scope.uploadImg = function (event) {
-		var file = event.target.files,
+		let file = event.target.files,
 			myImg,
 			inputImg = event.currentTarget,
 			random = Math.random(),

@@ -6,14 +6,14 @@ galleryApp.directive("galleryItem", function () {
 			customImage: '='
 		},
 		templateUrl: "templates/gallery-item.html",
-		compile: function(element, attributes){
+		compile: function(){
 
 			return {
-				pre: function(scope, element, attributes, controller, transcludeFn){
+				pre: function(){
 
 				},
-				post: function(scope, element, attributes, controller, transcludeFn){
-					scope.$emit('someEvent');
+				post: function(scope){
+					scope.$emit('addAllItemsInGalleryItem');
 				}
 			}
 		},

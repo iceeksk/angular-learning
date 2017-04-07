@@ -3,7 +3,6 @@
     padding: 0;
 }
 .wrapper{
-    position: relative;
     background-color: #f0f3f6;
     width: 1024px;
     height: 768px;
@@ -21,25 +20,23 @@ h1 span{
     height: 670px;
     width: 960px;
     overflow-x: scroll;
-    margin-left: 30px;
+    margin: 0 auto;
 }
 .packery-wrapper{
     height: 600px;
     float: left;
-    box-sizing: border-box;
 }
 .img-wrapper {
     display: flex;
 }
-.img-wrapper .inner{
-    box-sizing: border-box;
+.img-wrapper .item{
     margin: 5px;
     position: relative;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.25);
+    box-shadow: 0 0 7px 1px rgba(0,0,0,0.25);
 }
-.img-wrapper:hover .discr-wrap{
+.img-wrapper:hover .item-info{
     opacity: 1;
 }
 .landscape{
@@ -54,7 +51,7 @@ h1 span{
     width: 200px;
     height: 200px;
 }
-.img-inner-wraper{
+.img-item-wraper{
     width: 100%;
     height: 100%;
     display: flex;
@@ -64,21 +61,19 @@ h1 span{
 .image{
     width: 200%;
 }
-.discr-wrap{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+.item-info{
     position: absolute;
     bottom: 0;
     height: 50px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     background-color: white;
     opacity: 0;
     transition: opacity .5s;
     box-sizing: border-box;
     padding: 0 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 .like-dislike-wrapper{
     display: flex;
@@ -91,26 +86,21 @@ h1 span{
     position: relative;
 }
 .score{
-    width: 15px;
-    height: 15px;
-    border: 2px solid #A0B0BA;
-    background-color: #fff;
-    border-radius: 50%;
     position: absolute;
     right: -4px;
     top: -7px;
+    width: 15px;
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid #A0B0BA;
+    background-color: #fff;
+    border-radius: 50%;
 }
 .score span{
     font: normal 12px OpenSans;
     color: #21b8c6;
-}
-.form-wrapper{
-    width: 200px;
-    height: 200px;
-    display: flex;
 }
 .add-img{
     position: relative;
@@ -119,11 +109,11 @@ h1 span{
     border-radius: 5px;
     margin: 5px;
     background-color: white;
-    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.25);
+    box-shadow: 0 0 7px 1px rgba(0,0,0,0.25);
 }
 .myinput{
-    width: 190px;
-    height: 190px;
+    width: 100%;
+    height: 100%;
     background: url("../media/img/add.png") center no-repeat;
     background-size: 54px 54px;
     display: block;
@@ -146,12 +136,12 @@ h1 span{
 
 
 .popup{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.75);
     position: absolute;
     top:0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
 }
 .close-popup{
     position: absolute;
@@ -159,7 +149,6 @@ h1 span{
     right: 0;
     width: 45px;
     height: 45px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -170,12 +159,12 @@ h1 span{
     margin: -8px -3px 0 0;
 }
 .popup-content{
-    width: 850px;
-    height: 600px;
-    background-color: white;
     position: absolute;
     top: 70px;
     left: 100px;
+    width: 850px;
+    height: 600px;
+    background-color: white;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
@@ -200,13 +189,13 @@ h1 span{
     height: 35px;
 }
 
-.popup-comments-wrapper{
+.popup-comments-list{
     width: 350px;
     margin-top: 20px;
     height: 380px;
     overflow-y: scroll;
 }
-.popup-comments-list{
+.popup-comments-list ul{
     list-style-type: none;
     width: 325px;
 }
@@ -215,11 +204,11 @@ h1 span{
     color: #8499a7;
     margin-top: 20px;
 }
-.name-add-time-wrapper{
+.name-and-time-wrapper{
     display: flex;
     justify-content: space-between;
 }
-.name-add-time-wrapper span{
+.name-and-time-wrapper span{
     font: normal 11px OpenSans;;
     color: #95a7b3;
 }
@@ -233,10 +222,10 @@ h1 span{
 }
 .popup-like-disLike-wrapper{
     position: absolute;
+    width: 130px;
     right: 50px;
     margin-top: -10px;
     display: flex;
-    width: 130px;
     justify-content: space-between;
 }
 .popup-like-disLike-wrapper .like,
@@ -266,17 +255,17 @@ h1 span{
     width: 300px;
     height: 25px;
 }
-.input-comment{
-    width: 250px;
-    height: 50px;
-}
-.inputs-wrapper{
+.input-comment-wrapper{
     margin-top: 5px;
     display: flex;
     justify-content: flex-start;
 }
+.input-comment{
+    width: 250px;
+    height: 50px;
+}
 #input-submit{
-   display: none;
+    display: none;
 }
 .input-submit{
     width: 50px;

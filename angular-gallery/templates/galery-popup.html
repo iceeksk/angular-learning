@@ -20,20 +20,20 @@
 		</div>
 		<div class="popup-comments">
 			<h2>Comments: {{images[indexImage].comments.length }}</h2>
-			<div class="popup-comments-wrapper">
-				<ul class="popup-comments-list">
+			<div class="popup-comments-list">
+				<ul>
 					<li ng-repeat="com in images[indexImage].comments | orderBy:'-'">
-						<div class="name-add-time-wrapper">
+						<div class="name-and-time-wrapper">
 							<span>{{com.name}}</span>
 							<span>{{com.time | date:"h:mm a"}}</span>
 						</div>
-						<span class="comment">{{com.comemnt}}</span>
+						<span class="comment">{{com.comment}}</span>
 					</li>
 				</ul>
 			</div>
 			<form>
 				<input class="input-nickname" type="text" placeholder="Type your nickname here..." ng-model="nickName">
-				<div class="inputs-wrapper">
+				<div class="input-comment-wrapper">
 					<input class="input-comment" type="textarea" placeholder="Write your comment here..." ng-model="newComment">
 					<input id="input-submit" name="submit" type="submit" ng-click="sendComment()">
 					<label class="input-submit" for="input-submit"></label>

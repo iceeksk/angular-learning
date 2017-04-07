@@ -19,7 +19,7 @@ galleryApp.directive("galeryPopup", function () {
 
 			scope.addLike = function () {
 				createSessionStorageItemsForLikesAndDislikes();
-				var canTapLike = sessionStorage.getItem('canTapLike' + scope.indexImage),
+				let canTapLike = sessionStorage.getItem('canTapLike' + scope.indexImage),
 					canTapDislike = sessionStorage.getItem('canTapDislike' + scope.indexImage);
 				if (canTapLike == 'can') {
 					scope.images[scope.indexImage].like++;
@@ -38,7 +38,7 @@ galleryApp.directive("galeryPopup", function () {
 
 			scope.addDislike = function () {
 				createSessionStorageItemsForLikesAndDislikes();
-				var canTapLike = sessionStorage.getItem('canTapLike' + scope.indexImage),
+				let canTapLike = sessionStorage.getItem('canTapLike' + scope.indexImage),
 					canTapDislike = sessionStorage.getItem('canTapDislike' + scope.indexImage);
 				if (canTapDislike == 'can') {
 					scope.images[scope.indexImage].dislike++;
@@ -56,7 +56,7 @@ galleryApp.directive("galeryPopup", function () {
 			};
 
 			function createSessionStorageItemsForLikesAndDislikes() {
-				var canTapLike = sessionStorage.getItem('canTapLike' + scope.indexImage),
+				let canTapLike = sessionStorage.getItem('canTapLike' + scope.indexImage),
 					canTapDislike = sessionStorage.getItem('canTapDislike' + scope.indexImage);
 				if (canTapLike == null) {
 					sessionStorage.setItem('canTapLike' + scope.indexImage, 'can');
@@ -67,13 +67,13 @@ galleryApp.directive("galeryPopup", function () {
 			};
 
 			scope.sendComment = function () {
-				var date = new Date();
+				let date = new Date();
 				if (scope.nickName && scope.newComment) {
 					scope.images[scope.indexImage].comments.push(
 						{
 							"name": "By " + scope.nickName,
 							"time": date,
-							"comemnt": scope.newComment
+							"comment": scope.newComment
 						}
 					);
 					scope.nickName = "";
