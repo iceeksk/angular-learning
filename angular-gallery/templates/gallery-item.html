@@ -1,31 +1,28 @@
-<div class="inner-wrapper">
-	<div class="inner" ng-click="openPopup($index)">
-		<div class="img-inner-wraper">
-			<img class="image" ng-src="{{customImage.url}}">
-		</div>
-		<div class="discr-wrap">
-			<div class="comments">
-				<img ng-src="media/img/comments.png">
-				<div class="score">
-					<span>{{customImage.comments.length}}</span>
-				</div>
-			</div>
-			<div class="like-dislike-wrapper">
-				<div class="like">
-					<img ng-src="media/img/like.png">
-					<div class="score">
-						<span>{{customImage.like}}</span>
-					</div>
-				</div>
-				<div class="dislike">
-					<img ng-src="media/img/dislike.png">
-					<div class="score">
-						<span>{{customImage.dislike}}</span>
-					</div>
-				</div>
-			</div>
-
-		</div>
+<div class="item">
+	<div class="img-item-wraper">
+		<img class="image" ng-src="{{customImage.url}}">
 	</div>
-	<image-popup custom-popup="showPopup" custom-image="customImage"></image-popup>
+	<div class="item-info">
+		<div class="comments">
+			<img ng-src="media/img/comments.png">
+			<div class="score">
+				<span>{{customImage.comments.length}}</span>
+			</div>
+		</div>
+		<div class="like-dislike-wrapper">
+			<div class="like">
+				<img ng-src="media/img/like.png">
+				<div class="score">
+					<span>{{customImage.like}}</span>
+				</div>
+			</div>
+			<div class="dislike">
+				<img ng-src="media/img/dislike.png">
+				<div class="score">
+					<span>{{customImage.dislike}}</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </div>

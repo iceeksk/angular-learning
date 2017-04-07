@@ -1,150 +1,61 @@
-var galleryApp = angular.module('galleryApp', ['packery-angular']);
-
-
-
-galleryApp.directive('customOnChange', function () {
-	return {
-		restrict: 'A',
-		link: function (scope, element, attrs) {
-			console.log('121212');
-			var onChangeHandler = scope.$eval(attrs.customOnChange);
-			element.bind('change', onChangeHandler);
-		}
-	};
-});
-
+let galleryApp = angular.module('galleryApp', ['packery-angular']);
 
 
 galleryApp.controller('galleryCtrl', ['$scope', '$http', function ($scope, $http) {
 
 	$http.get('data/model.json').success(function (data) {
 		$scope.images = data;
-
 	});
 
-	$scope.showGallery = false;
+	$scope.showInput = false;
 
-	$scope.$on('someEvent', function() {
-		$scope.showGallery = true;
-		console.log('2');
+	$scope.$on('addAllItemsInGalleryItem', function() {
+		$scope.showInput = true;
 	});
-
 
 	$scope.options = {
 		columnWidth: 1,
-		dragSelector: '',
 		isAppended: true,
 		isDraggable: false,
 		itemSelector: '.pa-item',
 		rowHeight: 1,
-		stamp: '.pa-stamp',
-		horizontal: true,
-		gutter: 1
+		horizontal: true
 	};
-
-
-	$scope.$on('addImageToImages', function(newImg) {
-		$scope.images.push(newImg);
-		console.log('newImg');
-		console.log($scope.images);
-
-	});
-
-			/*$scope.$apply();*/
-
 
 	$scope.showPopup = false;
 
-
-
-	$scope.closePopup = function () {
-		$scope.showPopup = false;
-	};
-
-
-
-	$scope.sendComment = function () {
-
-		var date = new Date();
-
-		if( $scope.nickName && $scope.newComment ){
-			$scope.images[$scope.indexOfImg].comments.push(
-				{
-					"name": "By " + $scope.nickName,
-					"time": date,
-					"comemnt": $scope.newComment
-				}
-			);
-			$scope.nickName = "";
-			$scope.newComment = "";
-		}
+	$scope.openPopup = function (index) {
+		$scope.indexOfImg = index;
+		$scope.showPopup = true;
 	};
 
 	sessionStorage.clear();
 
-	$scope.likeIsTapet = [];
-	$scope.dislikeIsTapet = [];
+	$scope.uploadImg = function (event) {
+		let file = event.target.files,
+			myImg,
+			inputImg = event.currentTarget,
+			random = Math.random(),
+			size,
+			reader = new FileReader();
 
+		random < 0.5 ? size = 'normal' : random > 0.75 ? size = 'portret' : size = 'landscape' ;
 
-	$scope.addLike = function () {
+		reader.readAsDataURL(inputImg.files[0]);
 
-		createSessionStorageItemsForLikesAndDislikes();
-
-		var canTapLike = sessionStorage.getItem('canTapLike'+$scope.indexOfImg),
-			canTapDislike = sessionStorage.getItem('canTapDislike'+$scope.indexOfImg);
-
-		if (canTapLike == 'can') {
-			$scope.images[$scope.indexOfImg].like++;
-			sessionStorage.setItem('canTapLike'+$scope.indexOfImg, 'no');
-			if (canTapDislike == 'no') {
-				$scope.images[$scope.indexOfImg].dislike--;
-				sessionStorage.setItem('canTapDislike'+$scope.indexOfImg, 'can');
-			}
-		} else if (canTapLike == 'no') {
-			$scope.images[$scope.indexOfImg].like--;
-			sessionStorage.setItem('canTapLike'+$scope.indexOfImg, 'can');
-		}
-
-		$scope.likeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapLike' + $scope.indexOfImg);
-		$scope.dislikeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
-
-	};
-
-	$scope.addDislike = function () {
-
-		createSessionStorageItemsForLikesAndDislikes();
-
-		var canTapLike = sessionStorage.getItem('canTapLike' + $scope.indexOfImg),
-			canTapDislike = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
-
-		if (canTapDislike == 'can') {
-			$scope.images[$scope.indexOfImg].dislike++;
-			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'no');
-			if (canTapLike == 'no') {
-				$scope.images[$scope.indexOfImg].like--;
-				sessionStorage.setItem('canTapLike' + $scope.indexOfImg, 'can');
-			}
-		} else if (canTapDislike == 'no') {
-			$scope.images[$scope.indexOfImg].dislike--;
-			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
-		}
-
-		$scope.likeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapLike' + $scope.indexOfImg);
-		$scope.dislikeIsTapet[$scope.indexOfImg] = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
+		reader.onload = function (el) {
+			myImg = el.target.result;
+			$scope.images.push(
+				{
+					"name": file[0].name,
+					"url": myImg,
+					"like": 0,
+					"dislike": 0,
+					"size": size,
+					"comments": []
+				});
+			$scope.$apply();
+		};
 
 	};
-
-	function createSessionStorageItemsForLikesAndDislikes() {
-
-		var canTapLike = sessionStorage.getItem('canTapLike' + $scope.indexOfImg),
-			canTapDislike = sessionStorage.getItem('canTapDislike' + $scope.indexOfImg);
-
-		if (canTapLike == null) {
-			sessionStorage.setItem('canTapLike' + $scope.indexOfImg, 'can');
-		}
-		if (canTapDislike == null) {
-			sessionStorage.setItem('canTapDislike' + $scope.indexOfImg, 'can');
-		}
-	}
-
 }]);

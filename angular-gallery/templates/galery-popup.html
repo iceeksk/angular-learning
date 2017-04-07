@@ -1,0 +1,44 @@
+<div class="popup" ng-show="showPopup">
+	<div class="popup-content">
+		<div class="close-popup" ng-click="closePopup()"><span>x</span></div>
+		<div class="popup-img-wrapper">
+			<img class="popup-img" ng-src="{{images[indexImage].url}}">
+			<div class="popup-like-disLike-wrapper">
+				<div class="like" ng-click="addLike()" ng-class="likeIsTapet[indexImage]">
+					<img ng-src="media/img/like.png">
+					<div class="score">
+						<span class="likes">{{images[indexImage].like}}</span>
+					</div>
+				</div>
+				<div class="dislike" ng-click="addDislike()" ng-class="dislikeIsTapet[indexImage]">
+					<img ng-src="media/img/dislike.png">
+					<div class="score">
+						<span class="likes">{{images[indexImage].dislike}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popup-comments">
+			<h2>Comments: {{images[indexImage].comments.length }}</h2>
+			<div class="popup-comments-list">
+				<ul>
+					<li ng-repeat="com in images[indexImage].comments | orderBy:'-'">
+						<div class="name-and-time-wrapper">
+							<span>{{com.name}}</span>
+							<span>{{com.time | date:"h:mm a"}}</span>
+						</div>
+						<span class="comment">{{com.comment}}</span>
+					</li>
+				</ul>
+			</div>
+			<form>
+				<input class="input-nickname" type="text" placeholder="Type your nickname here..." ng-model="nickName">
+				<div class="input-comment-wrapper">
+					<input class="input-comment" type="textarea" placeholder="Write your comment here..." ng-model="newComment">
+					<input id="input-submit" name="submit" type="submit" ng-click="sendComment()">
+					<label class="input-submit" for="input-submit"></label>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -4,34 +4,36 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="style/fonts.css">
+	<script src="js/libs/angular.js"></script>
+	<script src="js/libs/draggabilly.pkgd.js"></script>
+	<script src="js/libs/packery.pkgd.js"></script>
+	<script src="js/libs/packery-angular.js"></script>
 </head>
 <body ng-controller="galleryCtrl">
 <article class="wrapper">
 	<h1>WELCOME TO VISEVEN <span>IMAGESTOCK</span></h1>
-
 	<div class="gallery-wrapper">
 		<pa-packery pa-options="options" class="packery-wrapper">
-
-			<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images">
-				<gallery-item custom-image="img" ></gallery-item>
+			<pa-packery-item class="pa-item img-wrapper {{img.size}}" ng-repeat="img in images" ng-click="openPopup($index)">
+				<gallery-item custom-image="img"></gallery-item>
 			</pa-packery-item>
-
-			<pa-packery-item class="pa-item" ng-if="showGallery">
-				<button-add-images></button-add-images>
+			<pa-packery-item class="pa-item" ng-if="showInput">
+				<form class="add-img">
+					<input id="myinput" type="file" custom-on-change="uploadImg" accept="image/*">
+					<label class="myinput" for="myinput"></label>
+					<span>Add your<br>Picture</span>
+				</form>
 			</pa-packery-item>
-
 		</pa-packery>
 	</div>
-
-
+	<galery-popup show-popup="showPopup" index-image="indexOfImg" images="images"></galery-popup>
 </article>
-<script src="js/libs/angular.js"></script>
-<script src="js/libs/draggabilly.pkgd.js"></script>
-<script src="js/libs/packery.pkgd.js"></script>
-<script src="js/libs/packery-angular.js"></script>
+
+
 <script src="js/controller.js"></script>
-<script src="js/galleryItem.directive.js"></script>
-<script src="js/imagePopup.directive.js"></script>
-<script src="js/buttonAddImages.directive.js"></script>
+<script src="js/galeryItem.directive.js"></script>
+<script src="js/galeryPopup.directive.js"></script>
+<script src="js/input.directive.atribute.js"></script>
 </body>
 </html>
