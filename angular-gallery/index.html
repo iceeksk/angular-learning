@@ -5,6 +5,10 @@
 	<title></title>
 	<link rel="stylesheet" href="style/style.css">
 	<link rel="stylesheet" href="style/fonts.css">
+	<script src="js/libs/angular.js"></script>
+	<script src="js/libs/draggabilly.pkgd.js"></script>
+	<script src="js/libs/packery.pkgd.js"></script>
+	<script src="js/libs/packery-angular.js"></script>
 </head>
 <body ng-controller="galleryCtrl">
 <article class="wrapper">
@@ -27,10 +31,8 @@
 </div>
 <galery-popup show-popup="showPopup" index-image="indexOfImg" images="images"></galery-popup>
 </article>
-<script src="js/libs/angular.js"></script>
-<script src="js/libs/draggabilly.pkgd.js"></script>
-<script src="js/libs/packery.pkgd.js"></script>
-<script src="js/libs/packery-angular.js"></script>
+
+
 <script src="js/controller.js"></script>
 <script src="js/galeryItem.directive.js"></script>
 <script src="js/galeryPopup.directive.js"></script>
